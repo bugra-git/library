@@ -1,0 +1,21 @@
+table {
+        border-collapse:collapse
+}
+
+th, td {
+    border: 1px slategray solid;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+th {
+    background-color: lightblue;
+}
+
+caption {
+    padding:10px 0;
+}
+
+tbody tr:nth-child(2n+1) {
+    background-color: aliceblue;
+}
