@@ -8,6 +8,10 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <div id="buttons">
+        <button id="openDialog">Add new book</button>
+        <button id="createTable">Create table</button>
+    </div>
     <table>
         <caption>Table shows information about the books in the library</caption>
         <thead>
@@ -23,5 +27,31 @@
             
         </tbody>
     </table>
+    <dialog>
+        <form method="dialog">
+            <button id="closeBtn">x</button>
+            <div class="label-input">
+                <label for="title">Title of book:</label>
+                <input id="title" type="text" autofocus required>
+            </div>
+            <div class="label-input">
+                <label for="author">Author of book:</label>
+                <input id="author" type="text" required>
+            </div>
+            <div class="label-input">
+                <label for="pages">Number of pages:</label>
+                <input id="pages" type="number" required>
+            </div>
+            <div class="label-input">
+                <label for="publisher">Publisher:</label>
+                <input id="publisher" type="text" required>
+            </div>
+            <div class="label-input">
+                <label for="publishyear">Year of publish:</label>
+                <input id="publishyear" type="number" required>
+            </div>
+            <button id="confirmBtn">Confirm</button>
+        </form>
+    </dialog>
 </body>
 </html>

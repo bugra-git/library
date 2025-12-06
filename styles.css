@@ -1,5 +1,6 @@
 table {
-        border-collapse:collapse
+    border-collapse:collapse;
+    margin:auto;
 }
 
 th, td {
@@ -18,4 +19,44 @@ caption {
 
 tbody tr:nth-child(2n+1) {
     background-color: aliceblue;
+}
+
+#buttons button, #confirmBtn {
+    background-color: lightblue;
+    border:1px solid grey;
+    border-radius: 8px;
+    padding: 5px 10px;
+    margin:5px 5px;
+}
+
+#buttons {
+    display:flex;
+    justify-content: center;
+}
+
+dialog {
+    border-color: grey;
+    border-radius: 8px;
+    background-color: aliceblue;
+    position:relative;
+}
+
+#closeBtn {
+    position:absolute;
+    top:4px;
+    right:4px;
+    background-color: red;
+    border:none;
+    color:white;
+    border-radius:8px
+}
+
+.label-input > * {
+    display: block;
+}
+
+#confirmBtn {
+    display:block;
+    margin-right: auto;
+    margin-left:auto;
 }
