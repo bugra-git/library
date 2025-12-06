@@ -25,8 +25,19 @@ function generateTable() {
     for (const books of library) {
         const tableRow = document.createElement("tr");
         tableBody.appendChild(tableRow);
-        tableRow.innerHTML = `<td class=bookTitle>${books.title}</td><td class=bookAuthor>${books.author}</td><td class=bookPages>${books.pages}</td><td class=bookPublisher>${books.publisher}</td><td class=bookYearPublished>${books.year}</td>`
+        tableRow.innerHTML = `<td class="delete-cell"><button class="delete" data-id="${books.id}">Delete Item</button></td><td class=bookTitle>${books.title}</td><td class=bookAuthor>${books.author}</td><td class=bookPages>${books.pages}</td><td class=bookPublisher>${books.publisher}</td><td class=bookYearPublished>${books.year}</td>`
     }
+    const deleteButtons = document.querySelectorAll(".delete");
+    deleteButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const id = btn.dataset.id;
+            const index = library.findIndex(book => book.id === id);
+            if (index !== -1) {
+                library.splice(index, 1);
+            }
+            generateTable();
+        });
+    });
 }
 
 const openDialogBtn = document.querySelector("#openDialog");

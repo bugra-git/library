@@ -60,3 +60,15 @@ dialog {
     margin-right: auto;
     margin-left:auto;
 }
+
+.delete-cell,#delete-head {
+    background-color: white;
+    border:none;
+}
+
+.delete {
+    background-color: lightblue;
+    border-radius:8px;
+    border:none;
+    padding:5px 10px;
+}
