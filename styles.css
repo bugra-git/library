@@ -72,3 +72,11 @@ dialog {
     border:none;
     padding:5px 10px;
 }
+
+.toggle {
+    background-color: lightblue;
+    border-radius:8px;
+    border:none;
+    padding: 2px 6px;
+    margin-left:5px;
+}

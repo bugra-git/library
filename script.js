@@ -7,6 +7,7 @@ function Book() {
     this.publisher = publisherBook;
     this.year = yearPublished;
     this.id = crypto.randomUUID();
+    this.presence = "Present"
 }
 
 function addBookToLibrary(title, author, pages, publisher, year) {
@@ -25,7 +26,7 @@ function generateTable() {
     for (const books of library) {
         const tableRow = document.createElement("tr");
         tableBody.appendChild(tableRow);
-        tableRow.innerHTML = `<td class="delete-cell"><button class="delete" data-id="${books.id}">Delete Item</button></td><td class=bookTitle>${books.title}</td><td class=bookAuthor>${books.author}</td><td class=bookPages>${books.pages}</td><td class=bookPublisher>${books.publisher}</td><td class=bookYearPublished>${books.year}</td>`
+        tableRow.innerHTML = `<td class="delete-cell"><button class="delete" data-id="${books.id}">Delete Item</button></td><td class=bookTitle>${books.title}</td><td class=bookAuthor>${books.author}</td><td class=bookPages>${books.pages}</td><td class=bookPublisher>${books.publisher}</td><td class=bookYearPublished>${books.year}</td><td class="presence"><span>${books.presence}</span><button class="toggle" data-id="${books.id}">✔</button></td>`
     }
     const deleteButtons = document.querySelectorAll(".delete");
     deleteButtons.forEach(btn => {
@@ -38,6 +39,22 @@ function generateTable() {
             generateTable();
         });
     });
+
+    const presenceButtons = document.querySelectorAll(".toggle");
+    presenceButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const presenceCell = btn.parentElement;
+            const presenceStatus = presenceCell.querySelector("span").textContent
+            const newStatus = presenceStatus === "Present" ? "Absent" : "Present";
+            btn.textContent = newStatus === "Present" ? "✔" : "✘";
+            presenceCell.querySelector("span").textContent = newStatus;
+            const id = btn.dataset.id;
+            const index = library.findIndex(book => book.id === id);
+            if (index !== -1) {
+                library[index].presence =newStatus;
+            }
+        })
+    })
 }
 
 const openDialogBtn = document.querySelector("#openDialog");
