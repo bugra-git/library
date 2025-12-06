@@ -64,7 +64,8 @@ const form = document.querySelector("form");
 openDialogBtn.addEventListener("click",() => dialog.showModal());
 
 const confirmBtn = document.getElementById("confirmBtn");
-confirmBtn.addEventListener("click",() => {
+confirmBtn.addEventListener("click",(btn) => {
+    btn.preventDefault();
     let inputTitle = document.getElementById("title").value;
     let inputAuthor = document.getElementById("author").value;
     let inputPages = document.getElementById("pages").value;
