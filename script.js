@@ -1,23 +1,15 @@
 const library = [];
 
-function Book() {
-    this.title = titleBook;
-    this.author = authorBook;
-    this.pages = pagesBook;
-    this.publisher = publisherBook;
-    this.year = yearPublished;
-    this.id = crypto.randomUUID();
-    this.presence = "Present"
-}
-
-function addBookToLibrary(title, author, pages, publisher, year) {
-    titleBook = title;
-    authorBook = author;
-    pagesBook = pages;
-    publisherBook = publisher;
-    yearPublished = year;
-    currentBook = new Book();
-    library.push(currentBook);
+class Book {
+    constructor(title, author, pages, publisher, year) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.publisher = publisher;
+        this.year = year;
+        this.id = crypto.randomUUID();
+        this.presence = "Present"
+    }
 }
 
 function generateTable() {
@@ -71,7 +63,8 @@ confirmBtn.addEventListener("click",(btn) => {
     let inputPages = document.getElementById("pages").value;
     let inputPublisher = document.getElementById("publisher").value;
     let inputYear = document.getElementById("publishyear").value;
-    addBookToLibrary(inputTitle,inputAuthor,inputPages,inputPublisher,inputYear);
+    const currentBook = new Book(inputTitle,inputAuthor,inputPages,inputPublisher,inputYear);
+    library.push(currentBook);
     dialog.close();
     form.reset();
 });
